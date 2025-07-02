@@ -11,8 +11,10 @@ import error404 from "./middlewares/error404.js"
 
 const app = express() 
 
-app.set("PORT", 9000) 
-app.use(cors())  
+
+app.use(cors({
+    origin: '*'
+  }));
 
 
 // middlewares
