@@ -30,4 +30,5 @@ app.use("/auth", authRoutes)
 app.use("/products",authentication,product) 
 app.use(error404)  // Middleware for handling 404 errors
 
-module.exports = app;
+
+export default app; 
