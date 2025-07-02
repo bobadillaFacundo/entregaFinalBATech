@@ -33,4 +33,4 @@ app.use("/products",authentication,product)
 app.use(error404)  // Middleware for handling 404 errors
 
 
-export default app; 
+export default app
