@@ -6,36 +6,36 @@ import {
       addDoc, 
       deleteDoc, 
       doc 
-} from 'firebase/firestore'; 
+} from 'firebase/firestore'  
  
-const productsCollection = collection(db, 'products'); 
+const productsCollection = collection(db, 'products')  
 
 // Método para buscar un producto por su ID 
 export async function getProductById(id) { 
-    const productDoc = await getDoc(doc(productsCollection, id)); 
+    const productDoc = await getDoc(doc(productsCollection, id))  
     if (productDoc.exists()) { 
-        return productDoc.data(); 
+        return productDoc.data()  
     } else { 
-        return null; 
+        return null  
     } 
-  }; 
+  }  
  
   // Método para obtener todos los productos 
 export async function getAllProducts() { 
-    const querySnapshot = await getDocs(productsCollection); 
-    const products = []; 
+    const querySnapshot = await getDocs(productsCollection)  
+    const products = []  
     querySnapshot.forEach((doc) => { 
-        products.push({ id: doc.id, ...doc.data() }); 
-    }); 
-    return products; 
-  }; 
+        products.push({ id: doc.id, ...doc.data() })  
+    })  
+    return products  
+  }  
  
   // Método para guardar un producto en Firestore 
 export async function saveProduct(product) { 
-    await addDoc(productsCollection, product); 
-  }; 
+    await addDoc(productsCollection, product)  
+  }  
  
   // Método para eliminar un producto por su ID 
 export async function deleteProduct(id) { 
-    await deleteDoc(doc(productsCollection, id)); 
-  }; 
+    await deleteDoc(doc(productsCollection, id))  
+  }  

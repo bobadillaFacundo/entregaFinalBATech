@@ -11,13 +11,13 @@ const firebaseConfig = {
   messagingSenderId: "579715228534",
   appId: process.env.FIREBASE_APP_ID,
   measurementId: "G-SX7KF0MZNL"
-};
+} 
 
 
 // Initialize Firebase 
-  const app = initializeApp(firebaseConfig); 
+  const app = initializeApp(firebaseConfig)  
  
   // Initialize Firestore 
-  const db = getFirestore(app); 
+  const db = getFirestore(app)  
  
-  export { db }; 
+  export { db }  
