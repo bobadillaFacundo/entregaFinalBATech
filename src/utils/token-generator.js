@@ -5,6 +5,6 @@ const secret_key = process.env.JWT_SECRET_KEY
 
 // Función para generar un token JWT 
 export const generateToken = (userData) => { 
-const expiration = { expiresIn: '1m' }  
+const expiration = { expiresIn: '1H' }  
 return jwt.sign(userData, secret_key, expiration)  
 } 
