@@ -30,7 +30,4 @@ app.use("/auth", authRoutes)
 app.use("/products",authentication,product) 
 app.use(error404)  // Middleware for handling 404 errors
 
-//listeners
-app.listen(app.get("PORT"), () => {
-  console.log(`Server on port http://localhost:${app.get("PORT")}`) 
-}) 
+module.exports = app;
