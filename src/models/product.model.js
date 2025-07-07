@@ -29,6 +29,11 @@ export async function getProductById(id) {
  
 export async function saveProduct(product) { 
   const productRef = doc(productsCollection, product.id)
+  const existingDoc = await getDoc(productRef)
+
+  if (existingDoc.exists()) {
+    throw new Error('Ya existe un producto con ese ID')
+  }
   await setDoc(productRef, product)
 }
 
