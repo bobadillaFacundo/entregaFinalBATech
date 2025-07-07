@@ -7,7 +7,6 @@ import {
 
 const userCollection = collection(db, 'users')  
 
-// Método para buscar un usuario por su ID
 export async function verification(email, password) {
     const userDocs = await getDocs(userCollection) 
 
@@ -16,11 +15,9 @@ export async function verification(email, password) {
     }
 
     const users = userDocs.docs.map(doc => doc.data()) 
-    // Filtrar el usuario por email y password
     const user = users.find(user => 
         user.email === email && user.password === password
     )
-
     if (user) {
         return user 
     }

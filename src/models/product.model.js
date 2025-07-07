@@ -10,7 +10,6 @@ import {
  
 const productsCollection = collection(db, 'products')  
 
-// Método para buscar un producto por su ID 
 export async function getProductById(id) { 
     const productDoc = await getDoc(doc(productsCollection, id))  
     if (productDoc.exists()) { 
@@ -19,9 +18,7 @@ export async function getProductById(id) {
         return null  
     } 
   }  
- 
-  // Método para obtener todos los productos 
-export async function getAllProducts() { 
+ export async function getAllProducts() { 
     const querySnapshot = await getDocs(productsCollection)  
     const products = []  
     querySnapshot.forEach((doc) => { 
@@ -30,12 +27,10 @@ export async function getAllProducts() {
     return products  
   }  
  
-  // Método para guardar un producto en Firestore 
 export async function saveProduct(product) { 
     await addDoc(productsCollection, product)  
   }  
  
-  // Método para eliminar un producto por su ID 
 export async function deleteProduct(id) { 
     await deleteDoc(doc(productsCollection, id))  
   }  
