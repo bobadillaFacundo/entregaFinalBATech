@@ -3,7 +3,7 @@ import {
       collection, 
       getDocs, 
       getDoc, 
-      addDoc, 
+      setDoc, 
       deleteDoc, 
       doc 
 } from 'firebase/firestore'  
@@ -28,9 +28,10 @@ export async function getProductById(id) {
   }  
  
 export async function saveProduct(product) { 
-    await addDoc(productsCollection, product)  
-  }  
- 
-export async function deleteProduct(id) { 
-    await deleteDoc(doc(productsCollection, id))  
-  }  
+  const productRef = doc(productsCollection, product.id)
+  await setDoc(productRef, product)
+}
+
+export async function deleteProduct(id) {
+    await deleteDoc(doc(productsCollection, id))
+  }

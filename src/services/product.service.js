@@ -15,7 +15,9 @@ export async function getAllProductsService() {
 export async function saveProductService(productData) {
   if (typeof productData.price !== "number" || productData.price < 0) throw new Error("Precio inválido") 
   if (typeof productData.stock !== "number" || productData.stock < 0) throw new Error("Stock inválido") 
-
+  if (!productData.id) {
+    throw new Error('El producto debe tener un campo "id" definido')
+  }
   await saveProduct(productData) 
   return { message: "Producto guardado correctamente" } 
 }
