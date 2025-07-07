@@ -13,11 +13,10 @@ export async function getAllProductsService() {
 }
 
 export async function saveProductService(productData) {
-  if (!productData.name) throw new Error("El nombre del producto es obligatorio") 
   if (typeof productData.price !== "number" || productData.price < 0) throw new Error("Precio inválido") 
   if (typeof productData.stock !== "number" || productData.stock < 0) throw new Error("Stock inválido") 
 
-  await saveProductService(productData) 
+  await saveProduct(productData) 
   return { message: "Producto guardado correctamente" } 
 }
 
